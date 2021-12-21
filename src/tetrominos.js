@@ -13,16 +13,15 @@ export const TETROMINOS = {
     shape: [
       [0, "J", 0],
       [0, "J", 0],
-      [0, "J", "J"],
+      ["J", "J", 0],
     ],
-
     color: "36, 95, 223",
   },
   L: {
     shape: [
       [0, "L", 0],
       [0, "L", 0],
-      ["L", "L", 0],
+      [0, "L", "L"],
     ],
     color: "223, 173, 36",
   },
@@ -62,16 +61,6 @@ export const TETROMINOS = {
 export const randomTetromino = () => {
   const tetrominos = "IJLOSTZ";
   const randTetromino =
-    tetrominos[Math.floor(Math.random() * (tetrominos.length - 1))];
+    tetrominos[Math.floor(Math.random() * tetrominos.length)];
   return TETROMINOS[randTetromino];
 };
-
-// Compare this snippet from src\components\Tetromino.js:
-// import React from "react";
-// import { STAGE_WIDTH } from "../../tetris";
-//
-// const Tetromino = ({ tetromino }) => {
-//   const blocks = tetromino.map((row, y) =>
-//     row.map((block, x) => (
-//       <div
-//         key={`${x}-${y}`}
